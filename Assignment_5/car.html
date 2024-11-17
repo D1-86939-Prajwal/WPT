@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>car</title>
+</head>
+<body>
+    <div>
+        <img src="car.PNG" id = "car" style="padding-left: 0px; position:  absolute; padding-top: 53px;">
+    </div>
+    <br>
+    <br><br><br><br>
+    <div style = "width: 50%;" id = "road">
+        <hr>
+    </div>
+    <br>
+    <div>
+        X-axis: 
+        <input type="text" id = "xaxis">
+        <br>
+        <br>
+        Y-axis:
+        <input type="text" id = "yaxis">
+    </div>
+    <br>
+        <input type="button" value = "Start" onclick="start()">
+        <input type="button" value = "Stop" onclick="stop()">
+    <script>
+        var counterx = 0;
+        var counterY = 53;
+        function go(){
+            debugger;
+            var refToMoveCar = document.getElementById("car");
+            if(counterx >= 690){
+            counterY = counterY+1;
+        // var length = document.getElementById("road").style.width;
+            refToMoveCar.style.paddingTop = counterY + "px";  
+            }
+        else{
+            counterx = counterx+1;
+        // var length = document.getElementById("road").style.width;
+            refToMoveCar.style.paddingLeft = counterx + "px";
+        }
+            var positionx = document.getElementById("xaxis");
+            var positionY = document.getElementById("yaxis");
+            positionx.value = counterx + "px";
+            positionY.value = counterY + "px"; 
+        }
+        function stop(){
+                window.clearInterval(interval);
+        }
+        let interval;
+        function start(){
+            debugger;
+            interval = window.setInterval(go,10);
+        }
+    </script>
+</body>
+</html>
